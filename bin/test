@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+pub run test test/test_all.dart
+
+# == References:
+# - [test \| Dart Package]
+#   (https://pub.dartlang.org/packages/test)

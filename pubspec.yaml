@@ -1,0 +1,18 @@
+name: toy_robot_dart
+version: 1.0.0
+description: >-
+  This is a personal attempt at implementing the Toy Robot specification brief
+  as a part of expected coding tests in the future for Developer positions
+  within Melbourne. It should demonstrate good coding practices, some coding
+  patterns and overall relevant skill as a developer.
+author: Alex Sonneveld <Alex.Sonneveld@live.com.au>
+homepage: https://github.com/toy-robot-dart
+documentation: https://github.com/toy-robot-dart
+environment:
+  sdk: ">=1.23.0 <2.0.0"
+dev_dependencies:
+  test: ">=0.12.34"
+
+# == References:
+# - [Pubspec Format \| Dart]
+#   (https://www.dartlang.org/tools/pub/pubspec)

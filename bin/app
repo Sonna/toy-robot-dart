@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+dart example/main.dart
