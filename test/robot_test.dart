@@ -25,6 +25,70 @@ void main() {
       expect(subject.y, equals(2));
       expect(subject.facing, equals("SOUTH"));
     });
+
+    test("left method turns Robot to face WEST, when facing NORTH", () {
+      Robot subject = new Robot();
+      subject.left();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("left method turns Robot to face SOUTH, when facing WEST", () {
+      Robot subject = new Robot(0, 0, 'WEST');
+      subject.left();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("SOUTH"));
+    });
+
+    test("left method turns Robot to face EAST, when facing SOUTH", () {
+      Robot subject = new Robot(0, 0, 'SOUTH');
+      subject.left();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("EAST"));
+    });
+
+    test("left method turns Robot to face NORTH, when facing EAST", () {
+      Robot subject = new Robot(0, 0, 'EAST');
+      subject.left();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("NORTH"));
+    });
+
+    test("right method turns Robot to face EAST, when facing NORTH", () {
+      Robot subject = new Robot();
+      subject.right();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("EAST"));
+    });
+
+    test("right method turns Robot to face SOUTH, when facing EAST", () {
+      Robot subject = new Robot(0, 0, 'EAST');
+      subject.right();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("SOUTH"));
+    });
+
+    test("right method turns Robot to face WEST, when facing SOUTH", () {
+      Robot subject = new Robot(0, 0, 'SOUTH');
+      subject.right();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("right method turns Robot to face NORTH, when facing WEST", () {
+      Robot subject = new Robot(0, 0, 'WEST');
+      subject.right();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("NORTH"));
+    });
   });
 
   group('standard output', () {

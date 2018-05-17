@@ -1,4 +1,11 @@
 class Robot {
+  Map<String, Map<String, String>> TURN = {
+    "NORTH": {"LEFT": "WEST", "RIGHT": "EAST"},
+    "EAST": {"LEFT": "NORTH", "RIGHT": "SOUTH"},
+    "SOUTH": {"LEFT": "EAST", "RIGHT": "WEST"},
+    "WEST": {"LEFT": "SOUTH", "RIGHT": "NORTH"}
+  };
+
   int _x = 0;
   int _y = 0;
   String _facing = "NORTH";
@@ -35,5 +42,13 @@ class Robot {
 
   void report() {
     print("${x},${y},${facing}");
+  }
+
+  void left() {
+    this.facing = TURN[this.facing]["LEFT"];
+  }
+
+  void right() {
+    this.facing = TURN[this.facing]["RIGHT"];
   }
 }
