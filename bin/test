@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+source bin/setup
 pub run test test/test_all.dart
 
 # == References:

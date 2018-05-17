@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  test:
+    docker:
+    -
+      image: google/dart:latest
+      entrypoint: ""
+    steps:
+    - checkout
+    - run: bin/setup
+    - run: bin/test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+    - test
