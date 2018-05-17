@@ -1,0 +1,10 @@
+image:
+  name: google/dart:latest
+  entrypoint: [""]
+
+before_script:
+  - bin/setup
+
+test:
+  script:
+  - bin/test
