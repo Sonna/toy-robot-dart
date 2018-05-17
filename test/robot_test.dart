@@ -89,6 +89,102 @@ void main() {
       expect(subject.y, equals(0));
       expect(subject.facing, equals("NORTH"));
     });
+
+    test("move method updates the Robot position, when facing NORTH", () {
+      Robot subject = new Robot();
+      subject.move();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(1));
+      expect(subject.facing, equals("NORTH"));
+    });
+
+    test("move method updates the Robot position, when facing EAST", () {
+      Robot subject = new Robot(0, 0, "EAST");
+      subject.move();
+      expect(subject.x, equals(1));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("EAST"));
+    });
+
+    test("move method updates Robot position, when at [2, 2] facing SOUTH", () {
+      Robot subject = new Robot(2, 2, "SOUTH");
+      subject.move();
+      expect(subject.x, equals(2));
+      expect(subject.y, equals(1));
+      expect(subject.facing, equals("SOUTH"));
+    });
+
+    test("move method updates Robot position, when at [2, 2] facing WEST", () {
+      Robot subject = new Robot(2, 2, "WEST");
+      subject.move();
+      expect(subject.x, equals(1));
+      expect(subject.y, equals(2));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("Robot does not move off table, when at [0, 0] facing SOUTH", () {
+      Robot subject = new Robot(0, 0, "SOUTH");
+      subject.move();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("SOUTH"));
+    });
+
+    test("Robot does not move off table, when at [0, 0] facing WEST", () {
+      Robot subject = new Robot(0, 0, "WEST");
+      subject.move();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("Robot does not move off table, when at [0, 4] facing WEST", () {
+      Robot subject = new Robot(0, 4, "WEST");
+      subject.move();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(4));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("Robot does not move off table, when at [0, 4] facing NORTH", () {
+      Robot subject = new Robot(0, 4, "NORTH");
+      subject.move();
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(4));
+      expect(subject.facing, equals("NORTH"));
+    });
+
+    test("Robot does not move off table, when at [4, 4] facing NORTH", () {
+      Robot subject = new Robot(4, 4, "NORTH");
+      subject.move();
+      expect(subject.x, equals(4));
+      expect(subject.y, equals(4));
+      expect(subject.facing, equals("NORTH"));
+    });
+
+    test("Robot does not move off table, when at [4, 4] facing EAST", () {
+      Robot subject = new Robot(4, 4, "EAST");
+      subject.move();
+      expect(subject.x, equals(4));
+      expect(subject.y, equals(4));
+      expect(subject.facing, equals("EAST"));
+    });
+
+    test("Robot does not move off table, when at [4, 0] facing EAST", () {
+      Robot subject = new Robot(4, 0, "EAST");
+      subject.move();
+      expect(subject.x, equals(4));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("EAST"));
+    });
+
+    test("Robot does not move off table, when at [4, 0] facing SOUTH", () {
+      Robot subject = new Robot(4, 0, "SOUTH");
+      subject.move();
+      expect(subject.x, equals(4));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("SOUTH"));
+    });
   });
 
   group('standard output', () {

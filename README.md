@@ -4,6 +4,9 @@
 - [Get Started \| Dart]
   (https://www.dartlang.org/guides/get-started)
 
+- [Library Tour \| Dart]
+  (https://www.dartlang.org/guides/libraries/library-tour)
+
 - [Getting Started with Pub \| Dart]
   (https://www.dartlang.org/tools/pub/get-started)
 

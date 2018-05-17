@@ -6,6 +6,13 @@ class Robot {
     "WEST": {"LEFT": "SOUTH", "RIGHT": "NORTH"}
   };
 
+  Map<String, Map<String, int>> MOVE = {
+    "NORTH": {"X": 0, "Y": 1},
+    "EAST": {"X": 1, "Y": 0},
+    "SOUTH": {"X": 0, "Y": -1},
+    "WEST": {"X": -1, "Y": 0}
+  };
+
   int _x = 0;
   int _y = 0;
   String _facing = "NORTH";
@@ -50,5 +57,17 @@ class Robot {
 
   void right() {
     this.facing = TURN[this.facing]["RIGHT"];
+  }
+
+  void move() {
+    this.x = this.x + MOVE[this.facing]["X"];
+    this.y = this.y + MOVE[this.facing]["Y"];
+
+    if (this.x < 0 || this.x > 4) {
+      this.x = this.x - MOVE[this.facing]["X"];
+    }
+    if (this.y < 0 || this.y > 4) {
+      this.y = this.y - MOVE[this.facing]["Y"];
+    }
   }
 }
