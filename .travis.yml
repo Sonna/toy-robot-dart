@@ -1,0 +1,13 @@
+sudo: required
+
+language: dart
+
+services:
+- docker
+
+before_install:
+- docker pull google/dart:latest
+
+script:
+# - docker run --rm -v $(pwd):/app -w /app --entrypoint="" google/dart bash -c "bin/setup && bin/test"
+- docker run --rm -v $(pwd):/app -w /app --entrypoint="" google/dart bash -c "bin/test"
