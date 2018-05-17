@@ -201,12 +201,58 @@ void main() {
       expect(subject.y, equals(3));
       expect(subject.facing, equals("WEST"));
     });
+
+    test("Exec placed at [3, 3] facing WEST coordinates", () {
+      Robot subject = new Robot();
+      subject.exec("PLACE", "3,3,WEST");
+      expect(subject.x, equals(3));
+      expect(subject.y, equals(3));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("move method updates the Robot position, when facing NORTH", () {
+      Robot subject = new Robot();
+      subject.exec("MOVE");
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(1));
+      expect(subject.facing, equals("NORTH"));
+    });
+
+    test("left method turns Robot to face WEST, when facing NORTH", () {
+      Robot subject = new Robot();
+      subject.exec("LEFT");
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("WEST"));
+    });
+
+    test("right method turns Robot to face EAST, when facing NORTH", () {
+      Robot subject = new Robot();
+      subject.exec("RIGHT");
+      expect(subject.x, equals(0));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("EAST"));
+    });
   });
 
   group('standard output', () {
+    setUp(() {
+      log = [];
+    });
+
+    tearDown(() {
+      log = null;
+    });
+
     test('report prints current coordinates to the screen', overridePrint(() {
       Robot subject = new Robot();
       subject.report();
+      expect(log, ["0,0,NORTH"]);
+    }));
+
+    test('Exec report prints current position to the screen', overridePrint(() {
+      Robot subject = new Robot();
+      subject.exec("REPORT");
       expect(log, ["0,0,NORTH"]);
     }));
   });

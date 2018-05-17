@@ -77,4 +77,26 @@ class Robot {
     this.y = int.parse(coordinates[1]);
     this.facing = coordinates[2];
   }
+
+  void exec(String rawCommand, [String rawArgs = ""]) {
+    switch(rawCommand) {
+      case "PLACE": { place(rawArgs); }
+      break;
+
+      case "MOVE": { move(); }
+      break;
+
+      case "LEFT": { left(); }
+      break;
+
+      case "RIGHT": { right(); }
+      break;
+
+      case "REPORT": { report(); }
+      break;
+
+      default: { /* Do Nothing*/ }
+      break;
+    }
+  }
 }
