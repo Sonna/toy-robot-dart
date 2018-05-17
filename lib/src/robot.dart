@@ -6,7 +6,7 @@ class Robot {
     "WEST": {"LEFT": "SOUTH", "RIGHT": "NORTH"}
   };
 
-  Map<String, Map<String, int>> MOVE = {
+  Map<String, Map<Runes, int>> MOVE = {
     "NORTH": {"X": 0, "Y": 1},
     "EAST": {"X": 1, "Y": 0},
     "SOUTH": {"X": 0, "Y": -1},
@@ -69,5 +69,12 @@ class Robot {
     if (this.y < 0 || this.y > 4) {
       this.y = this.y - MOVE[this.facing]["Y"];
     }
+  }
+
+  void place(String rawCoordinates) {
+    List<String> coordinates = rawCoordinates.split(",");
+    this.x = int.parse(coordinates[0]);
+    this.y = int.parse(coordinates[1]);
+    this.facing = coordinates[2];
   }
 }

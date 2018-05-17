@@ -185,6 +185,22 @@ void main() {
       expect(subject.y, equals(0));
       expect(subject.facing, equals("SOUTH"));
     });
+
+    test("placed at [4, 0] facing SOUTH coordinates", () {
+      Robot subject = new Robot();
+      subject.place("4,0,SOUTH");
+      expect(subject.x, equals(4));
+      expect(subject.y, equals(0));
+      expect(subject.facing, equals("SOUTH"));
+    });
+
+    test("placed at [3, 3] facing WEST coordinates", () {
+      Robot subject = new Robot();
+      subject.place("3,3,WEST");
+      expect(subject.x, equals(3));
+      expect(subject.y, equals(3));
+      expect(subject.facing, equals("WEST"));
+    });
   });
 
   group('standard output', () {
