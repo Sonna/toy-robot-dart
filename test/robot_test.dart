@@ -28,61 +28,13 @@ void main() {
   });
 
   group('standard output', () {
-    // IOSink oldStdout;
-    // var oldStdout;
-
-    // setUp(() {
-    //   oldStdout = Stdout;
-    //   _stdout = _StdIOUtils._getStdioOutputStream(_stdoutFD);
-    // });
-
-    // tearDown(() {
-    //   _stdout = oldStdout;
-    // });
-
-    // Stream readLine() => stdin
-    //   .transform(UTF8.decoder)
-    //   .transform(new LineSplitter());
-
-    // Stream cmdLine = stdin
-    //   // .transform(new StringDecoder())
-    //   .transform(UTF8.decoder)
-    //   .transform(new LineSplitter());
-
-    // String stdoutOutput = cmdLine.listen(
-    //   (line) => line,
-    //   onDone: () => line,
-    //   onError: (e) => '/* Error on input. */'
-    // );
-
-    // test('report prints current coordinates to the screen', () {
-    // test('report prints current coordinates to the screen', () async {
     test('report prints current coordinates to the screen', overridePrint(() {
       Robot subject = new Robot();
       subject.report();
-      // String actual = '';
-      // String actual = readLine().listen(subject.report);
-      // String actual = stdoutOutput;
-      // String actual = stdin.readLineSync(encoding: Encoding.UTF_8);
-      String expected = "0,0,NORTH";
-
-      // await for (var value in readLine()) {
-      //   actual += value;
-      // }
-
-      // expect(actual, equals(expected));
-      // expect(actual, completion(equals(expected)));
-      expect(log, [expected]);
+      expect(log, ["0,0,NORTH"]);
     }));
   });
 }
-
-// main() {
-//   test('override print', overridePrint(() {
-//     print('hello world');
-//     expect(log, ['hello world']);
-//   }));
-// }
 
 overridePrint(testFn()) => () {
   var spec = new ZoneSpecification(
