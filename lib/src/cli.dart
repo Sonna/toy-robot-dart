@@ -8,6 +8,7 @@ import 'robot.dart';
 
 class CLI {
   static void run(List<String> arguments) {
+    // Stream<List<int>> inputStream = new Stream.fromIterable([UTF8.encode("REPORT\nEXIT\n")]);
     Stream<List<int>> inputStream = stdin;
     Robot robot = new Robot();
 
@@ -30,10 +31,9 @@ class CLI {
           if (line == "EXIT") {
             subscription.cancel();
           }
-
+          // print(line);
           if (commands.length > 0) {
             if (commands.length > 1) {
-
               robot.exec(commands[0], commands[1]);
             } else {
               robot.exec(commands[0]);
